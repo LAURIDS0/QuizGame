@@ -31,7 +31,7 @@ items [
     {
         name = "saw",
         label = "Saw",
-        image = "item_saw",
+        image = "item_missing",
         description = "This is a saw.",
         type = "tool",
         durability = 60,

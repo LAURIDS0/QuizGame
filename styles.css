@@ -1,72 +1,60 @@
 /* Reset some default styles */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+body, h1, div, img, button, a {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f6fb;
-    color: #222;
-    overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
+    background: #eaf6e3;
+    min-height: 100vh;
 }
 
-/* Header styles */
 .header {
     display: flex;
     align-items: center;
-    gap: 1.5vw;
-    padding: 2vw 3vw 1vw 3vw;
-    background: #fff;
-    box-shadow: 0 0.5vw 2vw rgba(44, 62, 80, 0.09);
-    border-radius: 0 0 2vw 2vw;
+    gap: 16px;
+    background: #4caf50;
+    color: #fff;
+    padding: 20px 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .header img {
-    width: 3vw;
-    height: 3vw;
-    object-fit: contain;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: cover;
 }
 
 .header h1 {
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
 }
 
-/* Main layout */
 .main-content {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: calc(100vh - 6vw);
-    width: 100vw;
-    gap: 3vw;
-    padding: 2vw 0;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
 }
 
-/* Game area */
 .game-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 65vw;
-    height: 70vh;
+    margin-bottom: 32px;
 }
 
 .game-window {
-    position: relative;
-    width: 60vw;
-    height: 70vh;
-    border-radius: 2vw;
+    width: 400px;
+    height: 250px;
+    border: 3px solid #4caf50;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 1vw 3vw rgba(44, 62, 80, 0.13);
-    background: #e9ecef;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,115 +64,36 @@ html, body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* Inventory & Stats panel */
-.inventory-stats {
+button {
     background: #fff;
-    border-radius: 1.5vw;
-    box-shadow: 0 0.5vw 2vw rgba(44, 62, 80, 0.09);
-    padding: 2vw 1.5vw;
-    min-width: 15vw;
-    max-width: 20vw;
-    font-size: 1.1vw;
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(76,175,80,0.10);
+    outline: none;
     display: flex;
-    flex-direction: column;
-    gap: 2vw;
-}
-
-.inventory-stats h2 {
-    font-size: 1.3vw;
-    margin-bottom: 1vw;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-.inventory, .stats {
-    margin-bottom: 1vw;
-}
-
-.inventory h3,
-.stats h3 {
-    font-size: 1.1vw;
-    margin-bottom: 0.5vw;
-    font-weight: 500;
-    color: #34495e;
-}
-
-.inventory ul {
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 1vw;
-    justify-items: center;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.inventory li {
-    margin-bottom: 0.4vw;
-}
-
-.stats p {
-    font-size: 1vw;
-    margin-bottom: 0.3vw;
-}
-
-.inventory-item {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-bottom: 1vw;
-    list-style: none;
+    justify-content: center;
 }
 
-.item-img {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 0.3vw;
+button:hover {
+    background: #e8f5e9;
+    box-shadow: 0 4px 16px rgba(76,175,80,0.18);
 }
 
-.item-label {
-    font-size: 1.1em;
-    text-align: center;
-    margin-top: 0.2vw;
+button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .header h1 {
-        font-size: 4vw;
-    }
-    .header img {
-        width: 6vw;
-        height: 6vw;
-    }
-    .main-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 4vw;
-        height: auto;
-    }
-    .game-area, .game-window {
-        width: 90vw;
-        height: 40vh;
-    }
-    .inventory-stats {
-        min-width: 60vw;
-        max-width: 90vw;
-        font-size: 2vw;
-        padding: 4vw 2vw;
-    }
-    .inventory-stats h2,
-    .inventory-stats h3 {
-        font-size: 2vw;
-    }
-    .inventory ul,
-    .stats p {
-        font-size: 1.8vw;
-    }
+button img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
 }

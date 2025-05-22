@@ -1,2 +1,2 @@
-# QuizGame
-I want to learn ui, and ux better, this is my project to try this.
+# 2D game and inventory.
+Some one said i need a game engine to make a game, stfu.

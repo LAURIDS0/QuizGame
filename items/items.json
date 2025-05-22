@@ -1,0 +1,18 @@
+[
+    {
+        "label": "Hammer",
+        "image": "items/item-image/item_hammer.png"
+    },
+    {
+        "label": "Screwdriver",
+        "image": "items/item-image/item_screwdriver.png"
+    },
+    {
+        "label": "Wrench",
+        "image": "items/item-image/item_wrench.png"
+    },
+    {
+        "label": "Saw",
+        "image": "items/item-image/item_missing.png"
+    }
+]

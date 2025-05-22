@@ -22,10 +22,8 @@
             <h2>Inventory & Stats</h2>
             <div class="inventory">
                 <h3>Inventory</h3>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
+                <ul id="inventory-list">
+                    <!-- Items bliver indsat her med JavaScript -->
                 </ul>
             </div>
             <div class="stats">
@@ -36,5 +34,21 @@
             </div>
         </div>
     </div>
+    <script>
+        fetch('items/items.json')
+        .then(response => response.json())
+        .then(items => {
+            const inventoryList = document.getElementById('inventory-list');
+            inventoryList.innerHTML = "";
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<img src="${item.image}" alt="${item.label}" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">${item.label}`;
+                inventoryList.appendChild(li);
+            });
+        })
+        .catch(error => {
+            console.error('Kunne ikke hente items:', error);
+        });
+    </script>
 </body>
 </html>

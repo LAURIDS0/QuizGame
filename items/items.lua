@@ -1,8 +1,8 @@
 items [
     {
-        name = "hamer",
-        label = "Hamer",
-        image = "item_hamer",
+        name = "hammer",
+        label = "Hammer",
+        image = "item_hammer",
         description = "This is a hammer.",
         type = "weapon",
         damage = 10,

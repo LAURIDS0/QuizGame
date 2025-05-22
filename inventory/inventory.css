@@ -48,6 +48,12 @@ body::before {
     grid-template-rows: repeat(4, 80px) 80px;
     gap: 1rem;
     width: fit-content;
+    grid-template-areas:
+        "helmet head"
+        "mask armor"
+        "necklace pants"
+        "shield shoes"
+        "gun gun";
 }
 
 /* Common slot styles */
@@ -80,7 +86,7 @@ body::before {
 /* Specific slot placements */
 .helmet { grid-area: helmet; }
 .mask { grid-area: mask; }
-.neckleas { grid-area: neckleas; }
+.necklace { grid-area: necklace; }
 .shield { grid-area: shield; }
 .head { grid-area: head; }
 .armor { grid-area: armor; }

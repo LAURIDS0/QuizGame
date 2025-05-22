@@ -36,19 +36,23 @@
     </div>
     <script>
         fetch('items/items.json')
-        .then(response => response.json())
-        .then(items => {
-            const inventoryList = document.getElementById('inventory-list');
-            inventoryList.innerHTML = "";
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<img src="${item.image}" alt="${item.label}" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">${item.label}`;
-                inventoryList.appendChild(li);
+            .then(response => response.json())
+            .then(items => {
+                const inventoryList = document.getElementById('inventory-list');
+                inventoryList.innerHTML = "";
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = "inventory-item";
+                    li.innerHTML = `
+                        <img src="${item.image}" alt="${item.label}" class="item-img">
+                        <div class="item-label">${item.label}</div>
+                    `;
+                    inventoryList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Kunne ikke hente items:', error);
             });
-        })
-        .catch(error => {
-            console.error('Kunne ikke hente items:', error);
-        });
     </script>
 </body>
 </html>

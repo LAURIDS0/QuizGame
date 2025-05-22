@@ -115,6 +115,10 @@ html, body {
 .inventory ul {
     list-style: none;
     padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vw;
+    justify-items: center;
 }
 
 .inventory li {

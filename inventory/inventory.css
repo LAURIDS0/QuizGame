@@ -1,4 +1,4 @@
-/* Inventory CSS - Beautiful Design */
+/* Inventory CSS - Dark Theme Design */
 
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
@@ -12,70 +12,57 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background: #eaf6e3 url('../images/grass.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: #0a0a13;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     padding: 2rem;
-    color: #333;
+    color: #fff;
     position: relative;
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.6);
-    z-index: -1;
-}
-
-/* Player inventory styling - updated for vertical column layout */
+/* Main inventory layout */
 .inventory-player {
-    background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #4caf50;
+    background: rgba(25, 30, 60, 0.45);
+    border: 2px solid rgba(25, 118, 255, 0.2);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     display: grid;
     grid-template-columns: 80px 80px;
     grid-template-rows: repeat(4, 80px) 80px;
     gap: 1rem;
     width: fit-content;
-    grid-template-areas:
-        "helmet head"
-        "mask armor"
-        "necklace pants"
-        "shield shoes"
-        "gun gun";
+    backdrop-filter: blur(4px);
+    position: relative;
+    z-index: 2;
 }
 
 /* Common slot styles */
 .slot {
-    background: rgba(220, 237, 200, 0.5);
-    border: 2px dashed #4caf50;
-    border-radius: 8px;
+    background: rgba(30, 35, 60, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #3e8e41;
+    color: #fff;
     transition: all 0.2s ease;
     cursor: pointer;
     text-align: center;
-    box-shadow: inset 0 0 8px rgba(76, 175, 80, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(2px);
 }
 
 .slot:hover {
-    background: rgba(220, 237, 200, 0.8);
-    box-shadow: inset 0 0 12px rgba(76, 175, 80, 0.2);
+    border-color: #1976ff;
+    background: rgba(25, 118, 255, 0.12);
+    box-shadow: 0 0 12px rgba(25, 118, 255, 0.3);
     transform: translateY(-2px);
 }
 
@@ -83,7 +70,24 @@ body::before {
     transform: translateY(1px);
 }
 
-/* Specific slot placements */
+/* Inventory title */
+body::before {
+    content: 'inventory';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    font-size: 10vw;
+    color: #1976ff;
+    font-weight: bold;
+    opacity: 0.18;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+}
+
+/* Keep the grid areas */
 .helmet { grid-area: helmet; }
 .mask { grid-area: mask; }
 .necklace { grid-area: necklace; }
@@ -93,23 +97,27 @@ body::before {
 .pants { grid-area: pants; }
 .shoes { grid-area: shoes; }
 .gun { 
+    grid-area: gun;
     grid-column: span 2;
-    background: rgba(220, 237, 200, 0.7);
-    border-color: #388e3c;
+    background: rgba(30, 35, 60, 0.5);
+    border-color: rgba(25, 118, 255, 0.3);
 }
 
-/* Inventory bag styling - updated to 5×4 grid */
+/* Inventory bag styling - dark theme */
 .inventory-bag {
-    background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #4caf50;
+    background: rgba(25, 30, 60, 0.45);
+    border: 2px solid rgba(25, 118, 255, 0.2);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 80px);
     gap: 1rem;
     width: 500px;
+    backdrop-filter: blur(4px);
+    position: relative;
+    z-index: 2;
 }
 
 /* Responsive design */
@@ -136,28 +144,43 @@ body::before {
     }
 }
 
-/* Add animation for items when they're dragged or selected */
+/* Add animation for items when selected */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(25, 118, 255, 0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(25, 118, 255, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(25, 118, 255, 0.5); }
 }
 
 .slot.selected {
-    animation: pulse 0.8s infinite;
-    background: rgba(76, 175, 80, 0.2);
-    border-style: solid;
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    animation: pulse 1.2s infinite;
+    background: rgba(25, 118, 255, 0.15);
+    border: 2px solid #1976ff;
+    box-shadow: 0 0 15px rgba(25, 118, 255, 0.5);
 }
 
 /* Item styling when populated */
 .slot.filled {
-    background: rgba(255, 255, 255, 0.9);
-    border-style: solid;
+    background: rgba(40, 45, 75, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .slot img {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
+}
+
+/* Add a subtle grid effect to the background */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(25, 118, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(25, 118, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
 }

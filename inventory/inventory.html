@@ -35,18 +35,6 @@
             slot.className = 'slot bag-slot';
             inventoryBag.appendChild(slot);
         }
-        
-        // Add some interaction to demonstrate the selected state
-        document.querySelectorAll('.slot').forEach(slot => {
-            slot.addEventListener('click', function() {
-                // Remove selected class from all slots
-                document.querySelectorAll('.slot').forEach(s => {
-                    s.classList.remove('selected');
-                });
-                // Add selected class to clicked slot
-                this.classList.add('selected');
-            });
-        });
     </script>
 </body>
 </html>

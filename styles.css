@@ -32,45 +32,58 @@ body::before {
 .header {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: flex-start;
+    gap: 12px; /* Reduced from 16px */
     background: #4caf50;
     color: #fff;
-    padding: 20px 40px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 12px 30px; /* Reduced from 20px 40px */
+    border-bottom-left-radius: 15px; /* Reduced from 20px */
+    border-bottom-right-radius: 15px; /* Reduced from 20px */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Slightly reduced shadow */
+    position: relative;
 }
 
 .header img {
-    width: 60px;
-    height: 60px;
+    width: 45px; /* Reduced from 60px */
+    height: 45px; /* Reduced from 60px */
     border-radius: 50%;
     background: #fff;
     object-fit: cover;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem; /* Reduced from 2rem */
     font-weight: 700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 .main-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
     margin-top: 40px;
+    width: 100%;
 }
 
 .game-area {
     margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .game-window {
-    width: 90vw;
-    height: 90vh;
-    max-width: 90vw;
-    max-height: 90vh;
+    width: 55vw;  /* Reduced from 65vw */
+    height: 55vh; /* Reduced from 65vh */
+    max-width: 55vw;
+    max-height: 55vh;
     border: 3px solid #4caf50;
     border-radius: 16px;
     overflow: hidden;
@@ -94,9 +107,9 @@ body::before {
 
 button {
     background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #4caf50;
+    border: 2px solid #4caf50; /* Reduced border from 3px to 2px */
     border-radius: 50%;
-    padding: 10px;
+    padding: 8px; /* Reduced padding from 10px to 8px */
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -124,23 +137,73 @@ button a {
 }
 
 button img {
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Reduced from 40px */
+    height: 40px; /* Reduced from 40px */
     vertical-align: middle;
+}
+
+/* Updated button container styling */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 15px;
+    margin-right: 5%;
+}
+
+/* Button positioning for right side placement */
+.inventory-button {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 5%; /* Add space from right edge of screen */
 }
 
 /* Responsive design */
 @media (max-width: 600px) {
     .game-window {
-        width: 320px;
-        height: 200px;
+        width: 240px; /* Reduced from 280px */
+        height: 160px; /* Reduced from 180px */
+        max-width: 55vw;
+        max-height: 55vh;
+    }
+    
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .inventory-button {
+        margin-left: 0;
+        margin-top: 10px;
+        margin-right: 0; /* Reset margin for mobile layout */
     }
     
     .header {
-        padding: 15px 25px;
+        padding: 10px 20px; /* Further reduced for mobile */
+    }
+    
+    .header img {
+        width: 35px; /* Further reduced for mobile */
+        height: 35px; /* Further reduced for mobile */
     }
     
     .header h1 {
-        font-size: 1.5rem;
+        font-size: 1rem; /* Further reduced for mobile */
+        width: 100%;
+        padding: 0 40px; /* Reduced from 0 60px */
+    }
+    
+    button img {
+        width: 24px; /* Further reduce for mobile */
+        height: 24px;
+    }
+    
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
     }
 }

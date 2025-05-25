@@ -1,4 +1,3 @@
-/* Reset some default styles */
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
@@ -33,19 +32,19 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px; /* Reduced from 16px */
+    gap: 12px;
     background: #4caf50;
     color: #fff;
-    padding: 12px 30px; /* Reduced from 20px 40px */
-    border-bottom-left-radius: 15px; /* Reduced from 20px */
-    border-bottom-right-radius: 15px; /* Reduced from 20px */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Slightly reduced shadow */
+    padding: 12px 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     position: relative;
 }
 
 .header img {
-    width: 45px; /* Reduced from 60px */
-    height: 45px; /* Reduced from 60px */
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: #fff;
     object-fit: cover;
@@ -53,7 +52,7 @@ body::before {
 }
 
 .header h1 {
-    font-size: 1.6rem; /* Reduced from 2rem */
+    font-size: 1.6rem;
     font-weight: 700;
     position: absolute;
     left: 50%;
@@ -80,10 +79,10 @@ body::before {
 }
 
 .game-window {
-    width: 55vw;  /* Reduced from 65vw */
-    height: 55vh; /* Reduced from 65vh */
-    max-width: 55vw;
-    max-height: 55vh;
+    width: 75vw;
+    height: 75vh;
+    max-width: 75vw;
+    max-height: 75vh;
     border: 3px solid #4caf50;
     border-radius: 16px;
     overflow: hidden;
@@ -95,10 +94,6 @@ body::before {
     transition: transform 0.2s ease;
 }
 
-/* .game-window:hover {
-    transform: translateY(-2px);
-} */
-
 .game-window .background {
     width: 100%;
     height: 100%;
@@ -107,9 +102,9 @@ body::before {
 
 button {
     background: rgba(255, 255, 255, 0.85);
-    border: 2px solid #4caf50; /* Reduced border from 3px to 2px */
+    border: 2px solid #4caf50;
     border-radius: 50%;
-    padding: 8px; /* Reduced padding from 10px to 8px */
+    padding: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -137,12 +132,11 @@ button a {
 }
 
 button img {
-    width: 40px; /* Reduced from 40px */
-    height: 40px; /* Reduced from 40px */
+    width: 40px;
+    height: 40px;
     vertical-align: middle;
 }
 
-/* Updated button container styling */
 .buttons {
     display: flex;
     flex-direction: column;
@@ -151,49 +145,36 @@ button img {
     margin-right: 5%;
 }
 
-/* Button positioning for right side placement */
-.inventory-button {
-    position: relative;
-    margin-left: 10px;
-    margin-right: 5%; /* Add space from right edge of screen */
-}
-
 /* Responsive design */
 @media (max-width: 600px) {
     .game-window {
-        width: 240px; /* Reduced from 280px */
-        height: 160px; /* Reduced from 180px */
-        max-width: 55vw;
-        max-height: 55vh;
+        width: 320px;
+        height: 240px;
+        max-width: 90vw;
+        max-height: 65vh;
     }
     
     .main-content {
         flex-direction: column;
     }
     
-    .inventory-button {
-        margin-left: 0;
-        margin-top: 10px;
-        margin-right: 0; /* Reset margin for mobile layout */
-    }
-    
     .header {
-        padding: 10px 20px; /* Further reduced for mobile */
+        padding: 10px 20px;
     }
     
     .header img {
-        width: 35px; /* Further reduced for mobile */
-        height: 35px; /* Further reduced for mobile */
+        width: 35px;
+        height: 35px;
     }
     
     .header h1 {
-        font-size: 1rem; /* Further reduced for mobile */
+        font-size: 1rem;
         width: 100%;
-        padding: 0 40px; /* Reduced from 0 60px */
+        padding: 0 40px;
     }
     
     button img {
-        width: 24px; /* Further reduce for mobile */
+        width: 24px;
         height: 24px;
     }
     
